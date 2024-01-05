@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    
+    <button class="btn btn-primary" id="append">Append</button>
+    
+    <table class="table">
+        <thead id="thead">
+
+        </thead>
+        <tbody id="tbody"></tbody>
+    </table>
+
+
+
+    <script>
+
+
+
+        let headerAppended=false;
+        let i=0;
+        $(document).on('click','#append',function(){
+            var no= Math.floor(Math.random()*(999-100+1)+100);
+   console.log(no)
+
+if(!headerAppended){
+    $('#thead').append('<tr><th>S.No</th><th>Value</th><th>Percentage</th><th>Number</th><th>Action</th>')
+        headerAppended=true;
+}
+
+
+i++;
+$('#tbody').append('<tr><td>'+i+'</td><td>'+no+'</td><td id="pera"></td><td><input type="number" class="form-control" aria-describedby="emailHelp"></td><td><button class="btn btn-primary" id="add">Add</button></td>')
+    i<10000;
+
+
+   
+
+
+        })
+
+
+        $(document).on('click','#add',function(){
+            var trr=$(this).closest('tr')
+            $('#pera').empty()
+var inputs=trr[0].querySelectorAll('input')
+var column=parseInt(inputs[0].value)
+            var td=trr[0].querySelectorAll('td')
+            var no=td[1].innerHTML
+            var no1=td[2].innerHTML
+
+
+
+            var per=((column/no)*100)
+            
+
+            $('#pera').append('<p>'+per+'</p>')
+
+
+        })
+
+        
+    </script>
+</body>
+</html>
