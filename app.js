@@ -21,6 +21,9 @@ router.get('/task1',(req,res)=>{
 router.get('/task2',(req,res)=>{
     res.render('task2')
 })
+router.get('/sidebar',(req,res)=>{
+    res.render('sidebar')
+})
 
 
 app.use('/',router)
